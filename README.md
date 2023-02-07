@@ -98,3 +98,18 @@ Launch method:   Launch agent by connecting it to the controller/master
 
 
 ![Nodes](./images/conf2a.png)
+
+Our slave nodes are marked as red above as they are unconnected 
+
+We will need to get the connection code from each Jenkins slave node to run on our servers and enable the connection.
+
+Let us run the above code from the command line for the staging and production instances
+```
+curl -sO http://3.236.127.45:8080/jnlpJars/agent.jar
+
+java -jar agent.jar -jnlpUrl http://3.236.127.45:8080/manage/computer/Production/jenkins-agent.jnlp -secret 1bcc07b3adab01e2c33eb0131ef9d7b176f39292b049243ca464140640188b3b -workDir "/home/ubuntu/jenkins"
+```
+
+#### Nodes are now connected
+
+![Nodes](./images/node-connected.png)
