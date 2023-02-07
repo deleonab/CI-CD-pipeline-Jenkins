@@ -78,10 +78,12 @@ We have one node so far.   Built in node. (Our Jenkins Node which is the master.
 
 ---- Let us add new nodes for staging and production
 
-SET THE FOLLOWING
+### SET THE FOLLOWING for both slave nodes
 
 Remote home directory:    /home/ubuntu/jenkins
+
 Launch method:   Launch agent by connecting it to the controller/master
+
 
 ![Nodes](./images/conf1.png)
 
