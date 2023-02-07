@@ -64,3 +64,35 @@ Create first Admin user
 
 ![Jenkins is ready](./images/jenkins-start4.png)
 
+
+### ADD SLAVE NODES TO JENKINS 
+- We shall add slave nodes to Jenkins using JNLP connections/protocol
+
+- Manage Jenkins
+-- Configure global security
+---- Set TCP ports for inbound agents to random
+
+-- Manage Nodes and Clouds
+
+We have one node so far.   Built in node. (Our Jenkins Node which is the master.)
+
+---- Let us add new nodes for staging and production
+
+SET THE FOLLOWING
+
+Remote home directory:    /home/ubuntu/jenkins
+Launch method:   Launch agent by connecting it to the controller/master
+
+![Nodes](./images/conf1.png)
+
+
+![Nodes](./images/conf2.png)
+
+
+![Nodes](./images/conf3.png)
+
+
+![Nodes](./images/conf1a.png)
+
+
+![Nodes](./images/conf2a.png)
