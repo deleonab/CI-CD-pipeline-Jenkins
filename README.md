@@ -113,3 +113,59 @@ java -jar agent.jar -jnlpUrl http://3.236.127.45:8080/manage/computer/Production
 #### Nodes are now connected
 
 ![Nodes](./images/node-connected.png)
+
+
+### Now that our nodes are connected, we can start creating a pipeline
+
+### We shall copy a git repo to the slaves filesystem with Jenkins (Jenkins master)
+
+### The website we shall be deploying will be containerized with docker using Jenkins
+
+1. Pull source code from Git. Download in docker repository
+2. Containerise code into Apache container
+3. Test code
+4. If successful, push to production
+
+
+## OUR FIRST JOB - GIT JOB
+
+- Select New Item
+
+-- I will call it Git Job (for simplicity)
+-- Choose Freestyle Project
+
+-- From our terminal I will create a Git Repository called Ourwebsite and push website code to our remote Git repo.
+```
+mkdir website
+```
+```
+cd website
+
+sudo vi index.html
+```
+
+```
+<!doctype html>
+<html>
+  <head>
+    <title>Jenkins CI/CD Pipeline with Dele!</title>
+  </head>
+  <body>
+    <p>This is a pipeline that uses Git, Docker and Jenkins. CI/CD is sich a <strong>beautiful thing.</strong> Reduce as much human error with <strong>automation.</strong> </p>
+  </body>
+</html>
+```
+
+```
+git init
+
+git add .
+
+git branch -M main
+
+git remote add origin https://github.com/deleonab/ourwebsite.git
+
+git commit -m "Added website files"
+
+git push origin main
+```
