@@ -197,4 +197,69 @@ Restrict where job can be run: staging
 
 ### The Git Job is done for now
 
+Install Docker on both slaves(staging and production)
+```
+sudo apt-get install docker.io
+```
+
+### Now we need to create a Dockerfile with which Jenkins will build our image
+
+```
+sudo vi Dockerfile
+```
+
+```
+FROM hshar/webapp
+ADD . /var/www/html
+
+```
+
+
+#### Let's create another Jenkins job
+
+
+-- Let's create another freestyle project and name it build-Website
+
+- Restrict execution to staging
+
+- Click Add build step 
+
+- Select Execute shell option
+
+
+![build website](./images/buildtrigger.png)
+
+![build website](./images/buildtrigger2.png)
+
+![build website](./images/buildtrigger3.png)
+
+#### IF CONNECTION IS LOST BECAUSE OF TIMEOUT
+- Jenkins instance: 
+```
+ssh -i "jenkins.pem" ubuntu@ec2-3-236-127-45.compute-1.amazonaws.com
+
+```
+
+- Staging Instance: 
+```
+ssh -i "jenkins.pem" ubuntu@ec2-3-237-255-28.compute-1.amazonaws.com
+
+curl -sO http://3.236.127.45:8080/jnlpJars/agent.jar
+
+java -jar agent.jar -jnlpUrl http://3.236.127.45:8080/manage/computer/staging/jenkins-agent.jnlp -secret 8dd3e96bf459e8dd974bff8cd8444d978f09b6ba1fbbf475b7f4cb15fba1f147 -workDir "/home/ubuntu/jenkins"
+```
+- Production Instance
+
+```
+ssh -i "jenkins.pem" ubuntu@ec2-44-199-249-135.compute-1.amazonaws.com
+
+curl -sO http://3.236.127.45:8080/jnlpJars/agent.jar
+java -jar agent.jar -jnlpUrl http://3.236.127.45:8080/manage/computer/Production/jenkins-agent.jnlp -secret 1bcc07b3adab01e2c33eb0131ef9d7b176f39292b049243ca464140640188b3b -workDir "/home/ubuntu/jenkins"
+```
+
+
+
+sudo docker rm -f %(sudo docker ps -a -f)
+
+
 
