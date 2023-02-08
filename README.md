@@ -214,6 +214,20 @@ ADD . /var/www/html
 
 ```
 
+### The docker file must also be commited and pushed to our Git repo
+
+```
+
+git add .
+
+git commit -m "Added Dockerfile to git"
+
+git push origin main
+
+```
+
+
+
 
 #### Let's create another Jenkins job
 
@@ -257,9 +271,49 @@ curl -sO http://3.236.127.45:8080/jnlpJars/agent.jar
 java -jar agent.jar -jnlpUrl http://3.236.127.45:8080/manage/computer/Production/jenkins-agent.jnlp -secret 1bcc07b3adab01e2c33eb0131ef9d7b176f39292b049243ca464140640188b3b -workDir "/home/ubuntu/jenkins"
 ```
 
+![](./images/stagingcode.png)
+
+```
+sudo docker rm -f %(sudo docker ps -a -f)  ### This failed when run
+```
+```
+sudo docker rm -f %(sudo docker ps -a -q) ### This was successful and deleted all containers
+```
+### Let's test to make sure that our staging server can build containers. Our Jenkins build will delete all containers before it builds.
+
+```
+ubuntu@ip-172-31-15-53:~/jenkins$ cd workspace/
+ubuntu@ip-172-31-15-53:~/jenkins/workspace$ ls
+'Git Job'
+ubuntu@ip-172-31-15-53:~/jenkins/workspace$ cd Git\ Job/
+ubuntu@ip-172-31-15-53:~/jenkins/workspace/Git Job$ ls
+Dockerfile  index.html  test1
+ubuntu@ip-172-31-15-53:~/jenkins/workspace/Git Job$ pwd
+/home/ubuntu/jenkins/workspace/Git Job
+ubuntu@ip-172-31-15-53:~/jenkins/workspace/Git Job$ sudo docker run -it -d ubuntu
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+677076032cca: Pull complete
+Digest: sha256:9a0bdde4188b896a372804be2384015e90e3f84906b750c1a53539b585fbbe7f
+Status: Downloaded newer image for ubuntu:latest
+84fc347d30d1c819b16386d73544869651af064dadbf96188052f20d6870ba52
+ubuntu@ip-172-31-15-53:~/jenkins/workspace/Git Job$
+```
+
+### Ubuntu container was successfully built so we know our server can run docker successfully
+
+### Now let us run the Build Website job in Jenkins
+
+Note : Ensure that the build path in Jenkins is the same path as our Git Job path on out slave(staging)
+
+![Build Website Jenkins Build step](./images/build-website1.png)
 
 
-sudo docker rm -f %(sudo docker ps -a -f)
+
+
+
+
+
 
 
 
