@@ -192,4 +192,9 @@ Restrict where job can be run: staging
 ![Website Git](./images/sourcecode.png)
 
 
+![Website Git](./images/buildtrigger.png)
+
+
+### The Git Job is done for now
+
 
