@@ -169,3 +169,27 @@ git commit -m "Added website files"
 
 git push origin main
 ```
+
+![Website Git](./images/ourwebsitegit.png)
+
+We shall now copy the repo link and continue our Jenkins configuration.
+
+![Website Git](./images/ourwebsitegit2.png)
+
+
+Sourcecode Management: Git
+
+Repository url:  https://github.com/deleonab/ourwebsite.git
+
+Branch specifier: */main
+
+Build Triggers: checkbox select Github hook trigger for gitSCM polling
+
+Restrict where job can be run: staging
+
+![Website Git](./images/restrict.png)
+
+![Website Git](./images/sourcecode.png)
+
+
+
