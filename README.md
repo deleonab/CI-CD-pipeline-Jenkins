@@ -211,7 +211,7 @@ sudo apt-get install docker.io
 ```
 sudo vi Dockerfile
 ```
-
+#### Download Apache image and add to html directory
 ```
 FROM hshar/webapp
 ADD . /var/www/html
@@ -313,7 +313,11 @@ Note : Ensure that the build path in Jenkins is the same path as our Git Job pat
 ![Build Website Jenkins Build step](./images/build-website1.png)
 
 
-
+```
+sudo docker rm -f $(sudo docker ps -a -q)
+sudo docker build /home/ubuntu/jenkins/workspace/website -t website
+sudo docker run -it -p 82:80 -d website
+```
 
 
 
