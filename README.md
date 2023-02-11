@@ -41,6 +41,10 @@ sudo apt-get install jenkins
 ```
 ### 4. Check the jenkins installation status
 
+```
+sudo systemctl status jenkins
+```
+
 ![Check Jenkins installation](./images/jenkins-running.png)
 
 ### 5. Set up Jenkins. Open up port 8080 and go to browser at jenkinsserveripaddress:8080
