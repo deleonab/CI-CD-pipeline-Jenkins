@@ -385,6 +385,13 @@ The website was also updated in the browser.
 ![website](./images/website.png)
 
 
+#### The final stage of our pipeline is to push to production
+
+- Let's start another Jenkins job called deploy_prod to deploy our website in production
+
+![deploy prod](./images/deploy-prod.png)
+
+
 
 
 
