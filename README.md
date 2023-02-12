@@ -262,9 +262,8 @@ ssh -i "jenkins.pem" ubuntu@ec2-3-236-127-45.compute-1.amazonaws.com
 ```
 ssh -i "jenkins.pem" ubuntu@ec2-3-237-255-28.compute-1.amazonaws.com
 
-curl -sO http://3.236.127.45:8080/jnlpJars/agent.jar
-
-java -jar agent.jar -jnlpUrl http://3.236.127.45:8080/manage/computer/staging/jenkins-agent.jnlp -secret 8dd3e96bf459e8dd974bff8cd8444d978f09b6ba1fbbf475b7f4cb15fba1f147 -workDir "/home/ubuntu/jenkins"
+curl -sO http://52.91.151.61:8080/jnlpJars/agent.jar
+java -jar agent.jar -jnlpUrl http://52.91.151.61:8080/manage/computer/production/jenkins-agent.jnlp -secret 31399dd628f76d73f982424be393b104b50b0fb9f596e98916b67d42e3b84393 -workDir "/home/ubuntu/jenkins"
 ```
 - Production Instance
 
@@ -315,13 +314,61 @@ Note : Ensure that the build path in Jenkins is the same path as our Git Job pat
 
 ```
 sudo docker rm -f $(sudo docker ps -a -q)
-sudo docker build /home/ubuntu/jenkins/workspace/website -t website
+sudo docker build /home/ubuntu/jenkins/workspace/Git_job -t website
 sudo docker run -it -p 82:80 -d website
 ```
+#### Let us build the Git_job
+Result: Built successfully
+
+#### Let us build the build_website job
+Result: Built successfully
+
+![Build success](./images/build-success.png)
+
+#### We can see our deployment on the staging server in our browser
+
+```
+stagingserverpublicIP:82
+
+http://54.210.17.72:82/
+```
+
+###################
+
+Web page here
+
+#################
+
+
+
+#### All works but we don't yet have a pipeline.
+
+#### What we have now is the individual jobs that can be built manually
+
+
+#### Now, we need to reconfigure out Git_job.
+
+ - Go to post build actions and select build other project
+ - We will also select the trigger only if build is stable option.
+
+ ![post build](./images/post-build.png)
+
+ #### At this stage, Git_job will trigger build_website.
+ We now have to make git trigger build job by using web hook actions
+
+ - Let's go to our Github website project > settings > webhook
+
+ - set payload url to jenkins tool
+
+ ```
+ http://52.91.151.61:8080/github-webhook/
+ ```
+
+ ![webhook](./images/git-webhook.png)
 
 
 
 
 
 
-
+ 
