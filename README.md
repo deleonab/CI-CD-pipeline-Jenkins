@@ -408,13 +408,19 @@ sudo docker run -it -p 82:80 -d website
 
 ![deploy prod](./images/deploy-prod4.png)
 
-This job will be triggered by the build_website job and will only fire if the build on staging is successful.
+This job (deploy_prod) will be triggered by the build_website job and will only fire if the build on staging is successful.
 
 #### We shall now go into Build_website configuration to set up the post build actions.
 
 - Go to build_website job
 
 ![deploy prod](./images/deploy-prod5.png)
+
+
+#### If we try to access port 80 on the public IP of our production server, it can't be reached and we are unable to connect
+
+
+
 
 
 
