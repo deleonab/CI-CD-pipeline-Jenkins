@@ -366,9 +366,13 @@ Web page here
 
  ![webhook](./images/git-webhook.png)
 
+ #### Ensure that the webhook is showing a green tick of success
+
+ ![webhook](./images/webhook2.png)
 
 
 
 
 
- 
+
+
