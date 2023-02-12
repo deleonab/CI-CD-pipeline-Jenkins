@@ -392,6 +392,22 @@ The website was also updated in the browser.
 ![deploy prod](./images/deploy-prod.png)
 
 
+![deploy prod](./images/deploy-prod2.png)
+
+
+![deploy prod](./images/deploy-prod3.png)
+
+
+#### Add build step
+
+```
+sudo docker rm -f $(sudo docker ps -a -q)
+sudo docker build /home/ubuntu/jenkins/workspace/Git_job -t website
+sudo docker run -it -p 82:80 -d website
+```
+
+
+
 
 
 
