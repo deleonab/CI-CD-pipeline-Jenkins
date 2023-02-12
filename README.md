@@ -398,13 +398,25 @@ The website was also updated in the browser.
 ![deploy prod](./images/deploy-prod3.png)
 
 
-#### Add build step
+#### Add build step > Execute shell
 
 ```
 sudo docker rm -f $(sudo docker ps -a -q)
-sudo docker build /home/ubuntu/jenkins/workspace/Git_job -t website
+sudo docker build /home/ubuntu/jenkins/workspace/deploy_prod -t website
 sudo docker run -it -p 82:80 -d website
 ```
+
+![deploy prod](./images/deploy-prod4.png)
+
+This job will be triggered by the build_website job and will only fire if the build on staging is successful.
+
+#### We shall now go into Build_website configuration to set up the post build actions.
+
+- Go to build_website job
+
+![deploy prod](./images/deploy-prod5.png)
+
+
 
 
 
