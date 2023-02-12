@@ -370,6 +370,19 @@ Web page here
 
  ![webhook](./images/webhook2.png)
 
+#### The next step was to make a change to the index.html file and push it to git.
+
+```
+sudo vi index.html
+```
+
+I edited the file by changing the title and name from Jane Doe to Dele Onabowu and pushed it.
+
+The push triggered the github action which triggered the Git_)job in jenkins which triggered the build_website job to build and deploy our container.
+
+The website was also updated in the browser.
+
+![website](./images/website.png)
 
 
 
