@@ -419,6 +419,14 @@ This job (deploy_prod) will be triggered by the build_website job and will only 
 
 #### If we try to access port 80 on the public IP of our production server, it can't be reached and we are unable to connect
 
+#### This will become accessible when the triggered deployment happens. 
+
+
+#### Let us push some more doce to git to begin the automation
+
+1. We edited a line of html code in index.html and pushed to git
+2. The Git job in jenkins eas triggered and this called the build_website job to build the image and deploy the container on the staging server
+3. The successful build_website job triggered the deploy_prod job to pull from git, build the image and deploy the container on the production server
 
 
 
