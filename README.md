@@ -1,6 +1,8 @@
 
 ### DEPLOYING A WEBSITE THROUGH A CI/CD PIPELINE USING JENKINS
 
+![POC](./images/jenkins-ci-cd-pipeline1.png)
+
 
 1. Using VSCode, we will push our website code to our git repository
 2. We will set up a Git job (Git_job) in jenkins to pull our Git code unto our staging server. 
