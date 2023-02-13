@@ -7,17 +7,12 @@
 3. We shall set up a build_website job to build the image and deploy the container on the staging server
 4. If and only if the website is successfully deployed on our staging server, our build_website job will trigger the deploy_prod job to pull from git, build the image and deploy the container on our production server
 
-We shall need 3 servers
-- A staging server - Check and test
-- A production server - main server
-- A Jenkins server
+We shall need 3 servers (EC" - Ubuntu)
+- A Jenkins Server as a master
+- 2 Slaves. A staging server for testing and a production server for production. 
 
 ### 1. Let us launch 3 EC2 Instances
 
-
-- A staging server - Check and test
-- A production server - main server
-- A Jenkins server
 
 ![Our 3 servers](./images/our-three-servers.png)
 
