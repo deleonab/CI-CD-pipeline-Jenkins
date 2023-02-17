@@ -429,7 +429,7 @@ This job (deploy_prod) will be triggered by the build_website job and will only 
 #### This will become accessible when the triggered deployment happens. 
 
 
-#### Let us push some more doce to git to begin the automation
+#### Let us push some more code to git to begin the automation
 
 1. We edited a line of html code in index.html and pushed to git
 2. The Git job in jenkins eas triggered and this called the build_website job to build the image and deploy the container on the staging server
@@ -438,7 +438,7 @@ This job (deploy_prod) will be triggered by the build_website job and will only 
 ![prod deployment](./images/prod.png)
 
 
-######## End of POC ########
+######## End of POC #################################################
 
 
 
